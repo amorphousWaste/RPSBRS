@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://ycskxp4totb0"]
+
+[ext_resource type="Shader" path="res://Ring/Ring.gdshader" id="1_6m4xd"]
+[ext_resource type="Script" path="res://Ring/Ring.gd" id="1_6rj5t"]
+[ext_resource type="Texture2D" uid="uid://dn3md8ju6dnyn" path="res://Ring/RingShaderTint.tres" id="2_gbs1l"]
+[ext_resource type="Texture2D" uid="uid://c5d0d5fmutc6b" path="res://Ring/RingShaderMultiplier.tres" id="3_qwlvs"]
+[ext_resource type="Texture2D" uid="uid://cavuite7ta7p4" path="res://Ring/ring.png" id="5_mtjtp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71qgg"]
+shader = ExtResource("1_6m4xd")
+shader_parameter/extra_power = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/effect_scale = 1.0
+shader_parameter/effect_repeat = 2.0
+shader_parameter/effect_center = Vector2(0.5, 0.5)
+shader_parameter/uv_mod = Vector2(1, 1)
+shader_parameter/scroll_speed = Vector2(0, 0)
+shader_parameter/image_multiplier = ExtResource("3_qwlvs")
+shader_parameter/image_gradient_tint = ExtResource("2_gbs1l")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oujvc"]
+radius = 1491.99
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_va1k4"]
+shader = ExtResource("1_6m4xd")
+shader_parameter/extra_power = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/effect_scale = 1.0
+shader_parameter/effect_repeat = 2.0
+shader_parameter/effect_center = Vector2(0.5, 0.5)
+shader_parameter/uv_mod = Vector2(1, 1)
+shader_parameter/scroll_speed = Vector2(0, 0)
+shader_parameter/image_multiplier = ExtResource("3_qwlvs")
+shader_parameter/image_gradient_tint = ExtResource("2_gbs1l")
+
+[node name="Ring" type="Area2D"]
+material = SubResource("ShaderMaterial_71qgg")
+script = ExtResource("1_6rj5t")
+
+[node name="RingSprite" type="Sprite2D" parent="."]
+scale = Vector2(5.82812, 5.82812)
+texture = ExtResource("5_mtjtp")
+
+[node name="RingCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oujvc")
+
+[node name="RingEffect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_va1k4")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -360.0
+offset_right = 360.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.84432, 6.84432)
+pivot_offset = Vector2(360, 360)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

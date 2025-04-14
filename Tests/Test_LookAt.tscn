@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw22vn5wej032"]
+
+[ext_resource type="Texture2D" uid="uid://di6ghfx7yyjqe" path="res://Player/cone.png" id="1_0k73t"]
+[ext_resource type="Texture2D" uid="uid://b3dci0xp66vid" path="res://icon.png" id="2_4t7lx"]
+[ext_resource type="Script" path="res://Tests/player.gd" id="2_nnxh1"]
+
+[node name="TestLookAt" type="Node"]
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(128.91, 96.058)
+rotation = 3.14159
+scale = Vector2(2.17677, 34.9891)
+texture = ExtResource("1_0k73t")
+offset = Vector2(-0.0266724, -14.6071)
+script = ExtResource("2_nnxh1")
+
+[node name="target" type="Sprite2D" parent="."]
+position = Vector2(1160, 576)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("2_4t7lx")

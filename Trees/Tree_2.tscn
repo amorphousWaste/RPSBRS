@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0bqno01wilo7"]
+
+[ext_resource type="Script" path="res://Trees/Tree_2.gd" id="1_quxws"]
+
+[node name="Tree_2" type="Sprite2D"]
+script = ExtResource("1_quxws")

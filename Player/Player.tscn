@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvhe4855htuid"]
+
+[ext_resource type="Texture2D" uid="uid://coew0nfgukcv5" path="res://Player/player.png" id="1_5cisq"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_dc746"]
+[ext_resource type="Texture2D" uid="uid://di6ghfx7yyjqe" path="res://Player/cone.png" id="4_rqyeg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2weh3"]
+radius = 13.0
+
+[node name="Player" type="CharacterBody2D"]
+rotation = 1.57079
+script = ExtResource("1_dc746")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+rotation = -3.14159
+texture = ExtResource("1_5cisq")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_2weh3")
+
+[node name="ConeOfSight" type="Area2D" parent="."]
+rotation = 3.14159
+
+[node name="ConeOfSightSprite" type="Sprite2D" parent="ConeOfSight"]
+position = Vector2(0, 100)
+scale = Vector2(2, 6.25)
+texture = ExtResource("4_rqyeg")
+
+[node name="ConeOfSightCollision" type="CollisionPolygon2D" parent="ConeOfSight"]
+position = Vector2(64, -12.9255)
+scale = Vector2(1, 1.08028)
+polygon = PackedVector2Array(-64, 11.965, -96.0009, 197.102, -32.001, 197.102)
+
+[node name="RingDamageTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ConeOfSight" to="." method="_on_cone_of_sight_body_entered"]
+[connection signal="body_exited" from="ConeOfSight" to="." method="_on_cone_of_sight_body_exited"]
+[connection signal="timeout" from="RingDamageTimer" to="." method="_on_ring_damage_timer_timeout"]
+[connection signal="tree_entered" from="RingDamageTimer" to="." method="_on_ring_damage_timer_tree_entered"]
+[connection signal="tree_exited" from="RingDamageTimer" to="." method="_on_ring_damage_timer_tree_exited"]

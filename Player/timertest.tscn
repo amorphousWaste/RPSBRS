@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crfqe0pm55v2b"]
+
+[ext_resource type="Script" path="res://Tests/timertest.gd" id="1_opnvu"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_opnvu")

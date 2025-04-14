@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://vt1r78s765dh"]
+
+[ext_resource type="Script" path="res://Loot/Armour/Armour.gd" id="1_6ylb0"]
+[ext_resource type="Texture2D" uid="uid://b50hc7vsmv6ul" path="res://Loot/Armour/armour.png" id="1_jasu5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r7hhk"]
+height = 32.0
+
+[node name="Armour" type="StaticBody2D"]
+script = ExtResource("1_6ylb0")
+
+[node name="ArmourSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_jasu5")
+
+[node name="ArmourCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_r7hhk")

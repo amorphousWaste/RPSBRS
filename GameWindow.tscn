@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6qi62tt1s83f"]
+
+[ext_resource type="Script" path="res://GameWindow.gd" id="1_2f00u"]
+
+[sub_resource type="Curve2D" id="Curve2D_ju6x6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1664, 0, 0, 0, 0, 0, 1664, 720)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_a5rsc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -384, 0, 0, 0, 0, 0, -384, 720)
+}
+point_count = 2
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2f00u")
+
+[node name="PlayersLayer" type="Node" parent="."]
+
+[node name="LootLayer" type="Node" parent="."]
+
+[node name="RingLayer" type="Node" parent="."]
+
+[node name="TimersLayer" type="Node" parent="."]
+
+[node name="SpawnerLayer" type="Node" parent="."]
+
+[node name="SpawnerRangeR" type="Path2D" parent="SpawnerLayer"]
+curve = SubResource("Curve2D_ju6x6")
+
+[node name="SpawnerRangeSamplerR" type="PathFollow2D" parent="SpawnerLayer/SpawnerRangeR"]
+position = Vector2(1664, 0)
+rotation = 1.5708
+
+[node name="SpawnerRangeL" type="Path2D" parent="SpawnerLayer"]
+curve = SubResource("Curve2D_a5rsc")
+
+[node name="SpawnerRangeSamplerL" type="PathFollow2D" parent="SpawnerLayer/SpawnerRangeL"]
+position = Vector2(-384, 0)
+rotation = 1.5708

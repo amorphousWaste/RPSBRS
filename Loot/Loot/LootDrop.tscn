@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5o6rbg0tmggn"]
+
+[ext_resource type="Script" path="res://Loot/Loot/LootDrop.gd" id="1_sd2u2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwjlq"]
+
+[node name="LootDrop" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_gwjlq")
+script = ExtResource("1_sd2u2")
